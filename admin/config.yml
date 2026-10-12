@@ -1,0 +1,40 @@
+backend:
+  name: github
+  repo: tuo-utente/tuo-repo
+  branch: main
+
+local_backend: true
+
+media_folder: uploads
+public_folder: uploads
+
+collections:
+  - name: contents
+    label: Contents
+    files:
+      - name: blog
+        label: Blog
+        file: content/blog.json
+        fields:
+          - label: Post
+            name: posts
+            widget: list
+            fields:
+              - { label: Title, name: titolo, widget: string }
+              - { label: Slug (URL), name: slug, widget: string, hint: "Solo minuscole, numeri e trattini. Es: mostra-di-ottobre" }
+              - { label: Date, name: data, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: Immagine, name: immagine, widget: image, required: false }
+              - { label: Riassunto, name: riassunto, widget: text }
+              - { label: Contenuto, name: contenuto, widget: markdown }
+      - name: events
+        label: Events
+        file: content/events.json
+        fields:
+          - label: Events
+            name: events
+            widget: list
+            fields:
+              - { label: Title, name: titolo, widget: string }
+              - { label: Date, name: data, widget: string }
+              - { label: Description, name: descrizione, widget: text }
+              - { label: Image, name: immagine, widget: image, required: false }

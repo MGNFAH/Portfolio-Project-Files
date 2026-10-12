@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Francesco P. D'Elia</title>
+</head>
+<body class="bg-black">
+   <section class="h-screen w-full bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(0,0,0,1), transparent), url(/images/gala.jpg);" >
+        <header class="flex items-center justify-between px-40 py-10">
+            <section class="flex items-center text-5xl font-extrabold" id="logosection" >
+                <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 basis-1/4" >D</h1>
+            </section>
+            <nav id="main-nav" >
+                <ul class="flex items-center gap-6 text-gray-50/100">
+                    <li class="menu-item"> <a href="blog.html">Blog</a> </li>
+                    <li class="menu-item"> Projects </li>
+                    <li class="menu-item"> <a href="contact.html">Contact</a> </li>
+                    <li class="menu-item"> Certitications </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <hero class="flex items-center justify-between px-40 py-10">
+            <section class="text-5xl pt-80 basis-1/2">
+                <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500  font-extrabold" >Francesco Pontolillo D'Elia</h1>
+                <h2 class="text-gray-100/50">Full Stack Dev + Artist</h2>
+            </section>
+            <section class="basis-1/2">
+                <h3 class="text-gray-100/30">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur at quibusdam quidem et! Et minus modi adipisci sint alias molestiae in reiciendis temporibus unde, qui omnis maxime natus illo nihil?</h3>
+            </section>
+            </hero>
+    </section>
+
+        <section>
+            <section>  <section id="events" class="grid gap-6 md:grid-cols-3 p-6"></section>
+
+  <script>
+    fetch('content/events.json')
+      .then(r => r.json())
+      .then(({ events }) => {
+        document.getElementById('events').innerHTML = events.map(e => `
+          <article class="overflow-hidden rounded-xl border shadow-sm">
+            ${e.image ? `<img src="${e.image}" alt="${e.title}" class="h-48 w-full object-cover">` : ''}
+            <div class="p-4">
+              <p class="text-sm text-gray-500">${e.date}</p>
+              <h3 class="text-lg font-semibold">${e.title}</h3>
+              <p class="mt-2 text-gray-600">${e.description}</p>
+            </div>
+          </article>
+        `).join('');
+      });
+  </script></section>
+            <section></section>
+        </section>
+        <section></section>
+        <footer>
+            <section></section>
+            <section>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                 </ul>
+            </section>
+            <section></section>
+        </footer>
+    </main>
+</body>
+</html>

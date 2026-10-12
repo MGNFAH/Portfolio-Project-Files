@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+</head>
+<body class="bg-white text-gray-900">
+  <main class="mx-auto max-w-3xl p-6">
+    <a href="blog.html" class="text-sm text-gray-500 underline">← Tutti i post</a>
+    <article id="post" class="mt-6"></article>
+  </main>
+
+  <script>
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => (
+      { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+
+    const slug = new URLSearchParams(location.search).get('slug');
+    const box = document.getElementById('post');
+
+    fetch('content/blog.json')
+      .then(r => r.json())
+      .then(({ posts }) => {
+        const p = posts.find(x => x.slug === slug);
+        if (!p) {
+          box.innerHTML = '<p>Post non trovato.</p>';
+          return;
+        }
+        document.title = p.titolo;
+        box.innerHTML = `
+          <p class="text-sm text-gray-500">${esc(p.data)}</p>
+          <h1 class="mt-1 text-4xl font-bold">${esc(p.titolo)}</h1>
+          ${p.immagine ? `<img src="${esc(p.immagine)}" alt="${esc(p.titolo)}" class="my-6 w-full rounded-xl">` : ''}
+          <div class="prose prose-lg max-w-none">
+            ${DOMPurify.sanitize(marked.parse(p.contenuto || ''))}
+          </div>
+        `;
+      });
+  </script>
+</body>
+</html>
