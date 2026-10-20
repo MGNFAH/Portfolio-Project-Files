@@ -1,18 +1,22 @@
 {
   "projects": [
     {
-      "title": "Ciao a Tutti",
-      "date": "12/04/1990",
-      "content": "titiaia"
+      "category": "Coding",
+      "title": "Unit Converter 1.0",
+      "summary": "A small, yet powerful browser based unit converter that gives you exaustive details about many types of conversions",
+      "image": "uploads/screenshot-2026-10-20-alle-12.16.56.png",
+      "slug": "unit-converter",
+      "date": "1905-10-20",
+      "content": "A small, yet powerful browser based unit converter that gives you exaustive details about many types of conversions"
     },
     {
-      "content": "etus, non iaculis ligula. Proin consequat semper metus, id luctus libero euismod in. Aliquam erat volutpat. Aliquam erat volutpat. Nunc pretium, mi at hendrerit malesuada, nisl lacus iaculis ante, sit amet feugiat neque tellus ac risus. Donec ullamcorper est rutrum enim mattis, non venenatis dui suscipit. Ut turpis massa, sollicitudin quis varius sed, congue in sem. Cras tristique est quis justo viverra, laoreet sagittis metus molestie. Duis vitae varius enim. Aliquam vehicula enim sed magna hendrerit vestibulum. Donec velit mauris, congue ut turpis at, tempus sollicitudin leo. Nunc fringilla porttitor libero non ultricies. Etiam vestibulum felis vitae urna bibendum, vulputate egestas mauris mattis. Morbi pulvinar non nibh in malesuada.\n\n\n\nPraesent eleifend metus sed commodo cursus. Quisque viverra elementum ligula. Ut at erat vitae arcu congue fringilla. Mauris justo nisi, scelerisque sed faucibus sed, viverra quis nisl. Morbi blandit vitae nunc elementum imperdiet. Duis velit sapien, vulputate eu malesuada nec, porttitor quis quam. Duis maximus sodales tempor. Ut porta in enim eget pellentesque. Vivamus magna nisi, tempus sit amet felis at, fermentum iaculis justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce vulputate et libero id suscipit.\n\n\n\nMauris luctus finibus nulla, quis scelerisque risus. Etiam et commodo diam. Quisque nibh quam, vestibulum nec volutpat quis, interdum vitae diam. Vestibulum tincidunt ullamcorper sem, eu imperdiet arcu dignissim ut. Mauris a velit eget ante consectetur rhoncus et sed felis. Aenean euismod, mi ac luctus sollicitudin, metus mauris tincidunt sem, fermentum scelerisque lorem sapien sit amet ante. Pellentesque a tellus malesuada, euismod quam ut, suscipit lorem. Aenean dapibus id mauris eu aliquam. Fusce venenatis ornare euismod. Suspendisse pretium viverra euismod.\n\n\n\nProin elementum nulla sem, elementum commodo justo porta eget. Nam ultrices porttitor elementum. Aliquam dictum, tortor non fermentum elementum, elit dolor semper urna, non fermentum justo nisl vulputate magna. Duis nibh massa, tristique sed gravida fringilla, gravida eu dolor. Suspendisse id lacus lobortis, lobortis nisi quis, feugiat magna. Nulla fringilla risus ac nibh tempus, posuere luctus ex iaculis. Vestibulum ornare in magna ac volutpat. Cras malesuada ullamcorper tristique.",
-      "image": "uploads/screenshot-2026-09-07-alle-12.14.35.png",
-      "title": "test 4",
-      "slug": "test4",
-      "summary":"test test test test test test test test",
       "category": "Coding",
-      "date": "2026-10-17"
+      "title": "Fatis 1.0 - An holistic and aesthetic inspiration board for artists",
+      "slug": "fatis",
+      "date": "2026-10-20",
+      "summary": "Fatis is a platform for creative and artists where they can share and collect other human made art.",
+      "content": "Fatis is a platform for creative and artists where they can share and collect other human made art. It is similar to other platforms like pinterest or artstation but it focuses more on the user interactions and letting them find what they realy want in a more precise fashion. Hyperfast searching, suggestions, and a easier UX is what differs.",
+      "image": "uploads/screenshot-2026-10-20-alle-12.41.03.png"
     }
   ]
 }
