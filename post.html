@@ -7,13 +7,58 @@
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Archivo', 'sans-serif'],
+          dettaglio: ['IBM Plex Mono', 'monospace'],
+         },
+         keyframes: {
+          typing: { from: { width: '0' }, to: { width: '31ch' } },
+          caret: { '50%': { borderColor: 'transparent' } },
+        },
+        animation: {
+          typing: 'typing 3s steps(31) forwards, caret 0.8s step-end infinite',
+        },
+      },
+    },
+  };
+</script>
+
+
+
+
+
 </head>
-<body class="bg-white text-gray-900">
-  <main class="mx-auto max-w-3xl p-6">
-    <a href="blog.html" class="text-sm text-gray-500 underline">← Tutti i post</a>
+<body class="bg-black">
+     <section class="h-screen w-full bg-cover bg-center bg-fixed" style="background-image: linear-gradient(to right, rgba(0,0,0,1), transparent), url(/images/gala.jpg);" >
+        <header class=" px-20 py-10">
+            <section class="flex items-center justify-between  bg-black/50 px-4 py-2 text-white backdrop-blur-sm ">
+            <section class="flex items-center text-5xl font-extrabold" id="logosection" >
+                <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 basis-1/4" ><a href="index.html">D</a></h1>
+            </section>
+            <nav id="main-nav" >
+                <ul class="flex items-center gap-6 text-gray-50/100 font-titolo uppercase text-sm font-dettaglio tracking-widest ">
+                    <li class="menu-item"> <a href="blog.html">Blog</a> </li>
+                    <li class="menu-item"> <a href="projects.html">Projects </a> </li>
+                    <li class="menu-item"> <a href="contact.html">Contact</a> </li>
+                    <li class="menu-item"> <a href="#coming-soon">Certitications </a></li>
+                </ul>
+            </nav>
+            </section>
+    </header>
+     <main class="mx-auto max-w-3xl p-6">
+    <a href="blog.html" class="text-sm text-white underline">← All Posts</a>
     <article id="post" class="mt-6"></article>
   </main>
-
+<footer class="">  </footer>
   <script>
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => (
       { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
@@ -32,14 +77,61 @@
         }
         document.title = p.titolo;
         box.innerHTML = `
-          <p class="text-sm text-gray-500">${esc(p.data)}</p>
-          <h1 class="mt-1 text-4xl font-bold">${esc(p.titolo)}</h1>
+          <p class="text-sm text-white ">${esc(p.data)}</p>
+          <h1 class="mt-1 text-4xl font-bold text-white">${esc(p.titolo)}</h1>
           ${p.immagine ? `<img src="${esc(p.immagine)}" alt="${esc(p.titolo)}" class="my-6 w-full rounded-xl">` : ''}
-          <div class="prose prose-lg max-w-none">
+          <div class="prose prose-lg max-w-none text-white">
             ${DOMPurify.sanitize(marked.parse(p.contenuto || ''))}
           </div>
         `;
       });
   </script>
+  
 </body>
+
+        
+        <footer class="grid grid-cols-3 items-start items-center justify-items-center p-16 border-t border-gray-900 font-dettaglio uppercase ">
+            <section class="text-gray-600 text-xs">
+                 <ul >
+                    <li>fpdelia.com v0.1.0</li>
+                    <li>10/13/2026 12:03:03 [527c2d5]</li>
+                    <li>Admin</li>
+                    <li class="flex items-start items-center gap-2">Admin
+                        <img src="/images/glint.gif" alt="" aria-hidden="true" width="31" height="31" class="Glint-module__5pvEjG__glint NavMark-module__xPNWAW__star" data-off="" style="width:31px;height:31px;image-rendering:pixelated;vertical-align:middle">
+                    </li>
+                 </ul>   
+            </section>
+            <section class=" text-white ">
+                <ul class="flex items-center gap-10 uppercase tracking-widest text-sm">
+                    <li class="menu-item"> <a href="blog.html">Blog</a> </li>
+                    <li class="menu-item"> <a href="projects.html">Projects </a> </li>
+                    <li class="menu-item"> <a href="contact.html">Contact</a> </li>
+                    <li class="menu-item"> <a href="#coming-soon">Certitications </a></li>
+                 </ul>
+            </section>
+            <section class=" text-white">
+                <ul class="flex items-center gap-4 text-2xl text-white">
+                        <li>
+                            <a href="https://github.com/MGNFAH" aria-label="GitHub" class="hover:text-white transition">
+                            <i class="fa-brands fa-github"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/francesco-pontolillo-d-elia-51916535/" aria-label="LinkedIn" class="hover:text-white transition">
+                            <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/f.p.delia/" aria-label="Instagram" class="hover:text-white transition">
+                            <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contact.html" aria-label="Instagram" class="hover:text-white transition">
+                            <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </li>
+                </ul>
+            </section></footer>
+           </main>
 </html>

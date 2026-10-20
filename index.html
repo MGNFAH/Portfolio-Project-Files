@@ -5,68 +5,232 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Archivo', 'sans-serif'],
+          dettaglio: ['IBM Plex Mono', 'monospace'],
+         },
+         keyframes: {
+          typing: { from: { width: '0' }, to: { width: '31ch' } },
+          caret: { '50%': { borderColor: 'transparent' } },
+        },
+        animation: {
+          typing: 'typing 3s steps(31) forwards, caret 0.8s step-end infinite',
+        },
+      },
+    },
+  };
+</script>
     <title>Francesco P. D'Elia</title>
 </head>
-<body class="bg-black">
-   <section class="h-screen w-full bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(0,0,0,1), transparent), url(/images/gala.jpg);" >
-        <header class="flex items-center justify-between px-40 py-10">
+<body class="bg-black ">
+   <section class="h-screen w-full bg-cover bg-center bg-fixed" style="background-image: linear-gradient(to right, rgba(0,0,0,1), transparent), url(/images/gala.jpg);" >
+        <header class=" px-20 py-10">
+            <section class="flex items-center justify-between  bg-black/50 px-4 py-2 text-white backdrop-blur-sm ">
             <section class="flex items-center text-5xl font-extrabold" id="logosection" >
-                <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 basis-1/4" >D</h1>
+                <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 basis-1/4" ><a href="index.html">D</a></h1>
             </section>
             <nav id="main-nav" >
-                <ul class="flex items-center gap-6 text-gray-50/100">
+                <ul class="flex items-center gap-6 text-gray-50/100 font-titolo uppercase text-sm font-dettaglio tracking-widest ">
                     <li class="menu-item"> <a href="blog.html">Blog</a> </li>
-                    <li class="menu-item"> Projects </li>
+                    <li class="menu-item"> <a href="projects.html">Projects </a> </li>
                     <li class="menu-item"> <a href="contact.html">Contact</a> </li>
-                    <li class="menu-item"> Certitications </li>
+                    <li class="menu-item"> <a href="#coming-soon">Certitications </a></li>
                 </ul>
             </nav>
-        </header>
+            </section>
+    </header>
         <main>
             <hero class="flex items-center justify-between px-40 py-10">
             <section class="text-5xl pt-80 basis-1/2">
-                <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500  font-extrabold" >Francesco Pontolillo D'Elia</h1>
-                <h2 class="text-gray-100/50">Full Stack Dev + Artist</h2>
+                <h1 class="text-white text-8xl font-bold uppercase leading-[0.75] " >Francesco Pontolillo D'Elia</h1>
+                <h2 class="text-gray-50 text-2xl font-dettaglio uppercase py-8">Full Stack Dev + Artist</h2>
             </section>
-            <section class="basis-1/2">
-                <h3 class="text-gray-100/30">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur at quibusdam quidem et! Et minus modi adipisci sint alias molestiae in reiciendis temporibus unde, qui omnis maxime natus illo nihil?</h3>
-            </section>
+            <section class="flex basis-1/2  flex-col items-end justify-end self-stretch">
+           <h2 id="scritta" class="bg-black/50 font-dettaglio min-h-[1.5em] text-gray-100/50 after:ml-1 after:animate-pulse after:content-['|'] "></h2>
+
+</section>
             </hero>
     </section>
 
         <section>
-            <section>  <section id="events" class="grid gap-6 md:grid-cols-3 p-6"></section>
+            <section class="flex px-20">
+                <section  class="flex text-gray-600 flex-col basis-1/2 ">
+                    <section class="flex justify-between border-r border-gray-800 shadow-sm px-2 py-4 font-dettaglio tracking-widest text-sm">
+                    <p class="text-sm  ">Latest Writing</p>
+                    <p class="text-sm  ">01 - 05</p>
+                    </section>
+                    <section id="posts" >
+                        <script>
+                            fetch('content/blog.json')
+                            .then(r => r.json())
+                            .then(({ posts }) => {
+                                posts.sort((a, b) => b.data.localeCompare(a.data));
+                                document.getElementById('posts').innerHTML = posts.map(e => `
+                                <a href="post.html?slug=${encodeURIComponent(e.slug)}" class="block">
+                                    <article class="overflow-hidden border-t border-r border-gray-800 shadow-sm p-2 hover:bg-gray-900 transition-colors duration-500 ease-in-out font-dettaglio ">
+                                    ${e.immagine ? `<img src="${e.immagine}" alt="${e.titolo}" class=" h-48 w-full object-cover brightness-50 hover:brightness-100 transition duration-300">` : ''}
+                                    <div class="px-2 py-1">
+                                    <h3 class="text-2xl text-gray-50 font-semibold ">${e.titolo}</h3>
+                                    </div>
+                                        <div class="mx-2 font-dettaglio" >
+                                        <p class="inline text-gray-500 text-sm tracking-widest">${e.data} <b>&bull;</b> ${e.categoria}</p>
+                                        </div>
+                                </article>
+                                </a>
+                                `).join('');
+                            });
+                        </script>
+                        </section>
+                        </section>
+            <section class="flex  flex-col basis-1/2  font-dettaglio">
+                <section class="flex p-8" >
+                        <a href="https://www.youtube.com/watch?v=Aq5WXmQQooo" aria-label="Instagram" class="hover:text-white transition">
+                        <section class="basis-1/3">
+                                <img src="images/profile_pic.jpg" alt="profile-pic" class="w-32 h-32 rounded-full object-aspect-square object-over" > 
+                        </section>
+                        <section class="basis-2/3 ">
+                            <section class="flex justify-between"> 
+                                <p class="text-sm text-gray-600 uppercase m-2 text-gray-600 tracking-widest text-sm">Watch <b>&bull;</b> Latest talk</p>
+                                <p class="text-sm text-gray-600 uppercase m-2 tracking-widest text-sm">42 min</p>
+                            </section>
+                             <section> 
+                                <h3 class="text-lg text-gray-50 font-semibold m-2">Get to know me</h3>
+                                <p class="inline text-gray-500 m-2">
+                                <i class="fa-solid fa-circle-play tracking-widest text-sm"></i> Youtube <b>&bull;</b> See my Pitch</p>
+                            </section>
+                            </a>
+                        </section>
+                        </section>
+                      
+            <section class="flex justify-between border-y border-gray-800 shadow-sm px-2 py-4">
+                    <p class="text-sm text-white uppercase m-0 p-0 text-gray-600">Projects </p>
+            </section>
+ <section id="projects" >
+                        <script>
+                            fetch('content/projects.json')
+                            .then(r => r.json())
+                            .then(({ projects }) => {
+                                projects.sort((a, b) => b.date.localeCompare(a.date));
+                                document.getElementById('projects').innerHTML = projects.map(e => `
+                                <a href="project.html?slug=${encodeURIComponent(e.slug)}" class="block">
+                                    <article class="overflow-hidden border-b border-gray-800 shadow-sm p-2 flex justify-between hover:bg-gray-900 transition-colors duration-500 ease-in-out">
+                                    <div class="p-4">
+                                        <p class="text-sm text-gray-500 "> ${e.category} </p>
+                                        <h3 class=" inline text-gray-50 font-semibold text-2xl">${e.title}</h3>
+                                        <p class="text-sm text-gray-500">${e.summary}</p>
+                                    </div>
+                                        <div class="mx-4 my-2 ">
+                                        ${e.image ? `<img src="${e.image}" alt="${e.title}" class=" h-32 w-32 object-cover brightness-50 hover:brightness-100 transition duration-300">` : ''}
+                                        </div>
+                                </article>
+                                </a>
+                                `).join('');
+                            });
+                        </script>
+            </section>
 
-  <script>
-    fetch('content/events.json')
-      .then(r => r.json())
-      .then(({ events }) => {
-        document.getElementById('events').innerHTML = events.map(e => `
-          <article class="overflow-hidden rounded-xl border shadow-sm">
-            ${e.image ? `<img src="${e.image}" alt="${e.title}" class="h-48 w-full object-cover">` : ''}
-            <div class="p-4">
-              <p class="text-sm text-gray-500">${e.date}</p>
-              <h3 class="text-lg font-semibold">${e.title}</h3>
-              <p class="mt-2 text-gray-600">${e.description}</p>
-            </div>
-          </article>
-        `).join('');
-      });
-  </script></section>
-            <section></section>
+            </section>
+            
         </section>
-        <section></section>
-        <footer>
-            <section></section>
-            <section>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+        <section class="flex items-center justify-center p-16 border-t border-gray-600 font-dettaglio">
+                <a class="text-white border px-8 py-4 hover:bg-gray-900 transition-colors duration-500 ease-in-out tracking-widest text-sm font-dettaglio uppercase" href="/blog.html">All posts →</a>
+        </section>
+
+        
+        <footer class="grid grid-cols-3 items-start items-center justify-items-center p-16 border-t border-gray-900 font-dettaglio uppercase ">
+            <section class="text-gray-600 text-xs">
+                 <ul >
+                    <li>fpdelia.com v0.1.0</li>
+                    <li>10/13/2026 12:03:03 [527c2d5]</li>
+                    <li>Admin</li>
+                    <li class="flex items-start items-center gap-2">Admin
+                        <img src="/images/glint.gif" alt="" aria-hidden="true" width="31" height="31" class="Glint-module__5pvEjG__glint NavMark-module__xPNWAW__star" data-off="" style="width:31px;height:31px;image-rendering:pixelated;vertical-align:middle">
+                    </li>
+                 </ul>   
+            </section>
+            <section class=" text-white ">
+                <ul class="flex items-center gap-10 uppercase tracking-widest text-sm">
+                    <li class="menu-item"> <a href="blog.html">Blog</a> </li>
+                    <li class="menu-item"> <a href="projects.html">Projects </a> </li>
+                    <li class="menu-item"> <a href="contact.html">Contact</a> </li>
+                    <li class="menu-item"> <a href="#coming-soon">Certitications </a></li>
                  </ul>
             </section>
-            <section></section>
+            <section class=" text-white">
+                <ul class="flex items-center gap-4 text-2xl text-white">
+                        <li>
+                            <a href="https://github.com/MGNFAH" aria-label="GitHub" class="hover:text-white transition">
+                            <i class="fa-brands fa-github"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/francesco-pontolillo-d-elia-51916535/" aria-label="LinkedIn" class="hover:text-white transition">
+                            <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/f.p.delia/" aria-label="Instagram" class="hover:text-white transition">
+                            <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contact.html" aria-label="Instagram" class="hover:text-white transition">
+                            <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </li>
+                </ul>
+            </section>
+
+<script>
+  const frasi = ['Know where things fu*ks up, and prevent it. Now, I just need Time Travel', 'You Do not need a Degree if you just Ctrl+C from StackOverflow', 'DO NOT REDEEEEEEEEEEEEEM',     'UX first, functions later, bugs even more later, but before money.'];
+
+
+  const el = document.getElementById('scritta');
+
+  const velocitaScrittura = 70;
+  const velocitaCancellazione = 40;
+  const pausaDopoScritta = 1500;
+  const pausaDopoCancellazione = 400;
+
+  let frase = 0;
+  let lettere = 0;
+  let cancellando = false;
+
+  function ciclo() {
+    const testo = frasi[frase];
+
+    if (!cancellando) {
+      lettere++;
+      el.textContent = testo.slice(0, lettere);
+      if (lettere === testo.length) {
+        cancellando = true;
+        setTimeout(ciclo, pausaDopoScritta);
+        return;
+      }
+      setTimeout(ciclo, velocitaScrittura);
+    } else {
+      lettere--;
+      el.textContent = testo.slice(0, lettere);
+      if (lettere === 0) {
+        cancellando = false;
+        frase = (frase + 1) % frasi.length;
+        setTimeout(ciclo, pausaDopoCancellazione);
+        return;
+      }
+      setTimeout(ciclo, velocitaCancellazione);
+    }
+  }
+
+  ciclo();
+</script>
         </footer>
     </main>
 </body>

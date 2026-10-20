@@ -22,19 +22,23 @@ collections:
             fields:
               - { label: Title, name: titolo, widget: string }
               - { label: Slug (URL), name: slug, widget: string, hint: "Solo minuscole, numeri e trattini. Es: mostra-di-ottobre" }
+              - { label: Categoria, name: categoria, widget: select, options: ["Coding", "Disegno", "Sviluppo web", "Eventi"], default: "Mostre" }
               - { label: Date, name: data, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
               - { label: Immagine, name: immagine, widget: image, required: false }
               - { label: Riassunto, name: riassunto, widget: text }
               - { label: Contenuto, name: contenuto, widget: markdown }
-      - name: events
-        label: Events
-        file: content/events.json
+      - name: projects
+        label: Projects
+        file: content/projects.json
         fields:
-          - label: Events
-            name: events
+          - label: Projects
+            name: projects
             widget: list
             fields:
-              - { label: Title, name: titolo, widget: string }
-              - { label: Date, name: data, widget: string }
-              - { label: Description, name: descrizione, widget: text }
-              - { label: Image, name: immagine, widget: image, required: false }
+              - { label: Title, name: title, widget: string }
+              - { label: Slug (URL), name: slug, widget: string, hint: "Solo minuscole, numeri e trattini. Es: mostra-di-ottobre" }
+              - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: Categoria, name: category, widget: select, options: ["Coding", "Disegno", "Sviluppo web", "Eventi"], default: "Mostre" }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Contents, name: content, widget: markdown }
+              - { label: Image, name: image, widget: image, required: false }
