@@ -30,7 +30,7 @@
 </script>
     <title>Blog</title>
 </head>
-   <section class="h-screen w-full bg-cover bg-center bg-fixed" style="background-image: linear-gradient(to right, rgba(0,0,0,1), transparent), url(/images/gala.jpg);" >
+   <section class="h-screen w-full bg-cover bg-center bg-fixed" style="background-image: linear-gradient(to right, rgba(0,0,0,1), transparent), url(images/gala.jpg);" >
         <header class=" px-20 py-10">
             <section class="flex items-center justify-between  bg-black/50 px-4 py-2 text-white backdrop-blur-sm ">
             <section class="flex items-center text-5xl font-extrabold" id="logosection" >
@@ -63,12 +63,12 @@
         posts.sort((a, b) => b.data.localeCompare(a.data)); // più recenti prima
         document.getElementById('posts').innerHTML = posts.map(p => `
           <a href="post.html?slug=${encodeURIComponent(p.slug)}"
-             class="block overflow-hidden rounded-xl border shadow-sm transition hover:shadow-md">
+             class="block overflow-hidden rounded-xl border border-white/10 bg-white/5 transition hover:bg-white/10">
             ${p.immagine ? `<img src="${esc(p.immagine)}" alt="${esc(p.titolo)}" class="h-48 w-full object-cover">` : ''}
             <div class="p-4">
-              <p class="text-sm text-gray-500">${esc(p.data)}</p>
-              <h2 class="text-lg font-semibold">${esc(p.titolo)}</h2>
-              <p class="mt-2 text-gray-600">${esc(p.riassunto)}</p>
+              <p class="text-sm text-gray-400">${esc(p.data)}</p>
+              <h2 class="mt-1 text-lg font-semibold text-white">${esc(p.titolo)}</h2>
+              <p class="mt-2 text-gray-300">${esc(p.riassunto)}</p>
             </div>
           </a>
         `).join('');
@@ -82,7 +82,7 @@
                     <li>10/13/2026 12:03:03 [527c2d5]</li>
                     <li>Admin</li>
                     <li class="flex items-start items-center gap-2">Admin
-                        <img src="/images/glint.gif" alt="" aria-hidden="true" width="31" height="31" class="Glint-module__5pvEjG__glint NavMark-module__xPNWAW__star" data-off="" style="width:31px;height:31px;image-rendering:pixelated;vertical-align:middle">
+                        <img src="images/glint.gif" alt="" aria-hidden="true" width="31" height="31" class="Glint-module__5pvEjG__glint NavMark-module__xPNWAW__star" data-off="" style="width:31px;height:31px;image-rendering:pixelated;vertical-align:middle">
                     </li>
                  </ul>   
             </section>
